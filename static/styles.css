@@ -36,7 +36,7 @@ body {
     min-height: 5vh;
 }
 
-.maincontent {
+.main-content {
     grid-area: content;
     min-height: 80vh;
 }
@@ -66,18 +66,18 @@ body {
             "inputoutputarea"
             "infoarea";
 }
-.containtertitle {
+.container-title {
     grid-area: title;
 }
 
-.containtertitle h1 {
+.container-title h1 {
     margin-bottom: 0;
     padding: 0
 }
-.containercontent {
+.container-content {
     grid-area: inputoutputarea;
 }
-.containterinfo {
+.container-info {
     grid-area: infoarea;
     background: lightgrey;
 }

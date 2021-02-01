@@ -2,14 +2,15 @@
 {% block content %}
     <form method="post" action="/output/">
         <div class="container">
-            <h1 class="containtertitle">Monte Carlo Simulation: Enter plan details</h1>
-            <p class="containercontent">
+            <h1 class="container-title">Monte Carlo Simulation: Enter plan details</h1>
+            <p class="container-content">
                 <label for="current-retirement-$">Current retirement savings</label>&nbsp;
                 <input class="input" id="current-retirement-$" name="present_value" type="number" required min="0"/>
                 <br><br>
 
                 <label for="birth-date">Date of birth</label>&nbsp;
-                <input class="input" id="birth-date" name="date_of_birth" type="date" required/>
+                <input class="input" id="birth-date" name="date_of_birth" type="date" placeholder="yyyy-mm-dd"
+                       required/>
                 <br><br>
 
                 <label for="planned-retirement-age">Planned retirement Age?</label>&nbsp;
@@ -52,7 +53,7 @@
                        value=1000 required/><br>
                 <input class="button" type="submit" value="Calculate"/>
             </p>
-            <p class="containterinfo">
+            <p class="container-info">
                 <b>About Monte Carlo simulation:</b><br>
                 This Monte Carlo simulation tool provides a means to test long term expected portfolio growth and
                 portfolio survival based on withdrawals, e.g., testing whether the portfolio can sustain the planned

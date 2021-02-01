@@ -1,0 +1,7 @@
+﻿variable,value
+inflation,0.03
+inflation_variance,0.0117
+social_security_age,66
+retirement_phase_1_age,66
+retirement_phase_2_age,75
+social_security_amount,27684

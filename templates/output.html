@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
     <div  class="container">
-        {{ div | safe }}
+        <div class="container-title">
+            <h1>Viability of your retirement plan</h1>
+        </div>
+        <div class="container-content">
+            <p>The probability of success is <i>{{ div1 | safe }}</i></p>
+        </div>
+        {{ div2 | safe }}
     </div>
 {% endblock %}
