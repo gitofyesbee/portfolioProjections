@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <h1 class="containtertitle">Monte Carlo Simulation</h1>
+        <p class="containercontent">
+            This Monte Carlo simulation tool provides a means to test long term expected portfolio growth and portfolio
+            survival based on withdrawals, e.g., testing whether the portfolio can sustain the planned withdrawals
+            required for retirement
+            <br>
+            <a href="inputdata">
+                <input class="button" type="submit" value="Click to Start"/>
+            </a>
+        </p>
+        <ul class="containterinfo">
+            <li><strong>Proof of Concept application:</strong> &nbsp;Utilizing Python, HTML5, CSS Grids
+                <ul>
+                    <li>
+                        <strong>Phase 1 (Current):</strong>
+                        &nbsp;Container based, CI/CD (Heroku)
+                    </li>
+                    <li>
+                        <strong>Phase 2:</strong>
+                        &nbsp;Fully serverless (AWS)
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="post" action="/output/">
+        <div class="container">
+            <h1 class="containtertitle">Monte Carlo Simulation: Enter plan details</h1>
+            <p class="containercontent">
+                <label for="current-retirement-$">Current retirement savings</label>&nbsp;
+                <input class="input" id="current-retirement-$" name="present_value" type="number" required min="0"/>
+                <br><br>
+
+                <label for="birth-date">Date of birth</label>&nbsp;
+                <input class="input" id="birth-date" name="date_of_birth" type="date" required/>
+                <br><br>
+
+                <label for="planned-retirement-age">Planned retirement Age?</label>&nbsp;
+                <input id="planned-retirement-age" class="input" name="retirement_age" type="number" required min="21"/>
+                <br><br>
+
+                <label for="max-age">Age till which you want to check savings viability?</label>&nbsp;
+                <input id="max-age" class="input" name="max_age" type="number" required min="21" value="92"/>
+                <br><br>
+
+                <label for="planned-savings-till-retirement">Annual savings till retirement?</label>&nbsp;
+                <input id="planned-savings-till-retirement" class="input" name="annual_savings_till_retirement"
+                       type="number"
+                       required min="0" value="0"/>
+                <br><br>
+
+                <label for="retirement-expenses">Annual expenses in retirement?</label>&nbsp;
+                <input id="retirement-expenses" class="input" type="number" name="annual_withdrawal_in_retirement"
+                       required
+                       min="0" value="108000"/>
+                <br><br>
+
+                <label for="roi-expected">Anticipated returns on retirement savings</label>&nbsp;
+                <input class="input" id="roi-expected" name="expected_roi" type="number" required min="0.05" max="1"
+                       step="0.0001" value="0.0725"/><br>
+                <span class="note">Enter value in decimals pls: 0.5 is 50%, 0.05 is 5% </span>
+                <br><br>
+
+                <label for="standard-deviation">Anticipated volatility</label>&nbsp;
+                <input class="input" id="standard-deviation" type="number" name="standard_deviation_of_expected_returns"
+                       required min="0.1" max="1" step="0.0001"
+                       value="0.17"/><br>
+                <span class="note">Leave at default, unless you know what you are doing.&nbsp;
+                    To tinker please enter value in decimals pls: 0.5 is 50%, 0.05 is 5% </span>
+                <br><br>
+
+                <label for="number-of-simulations">Number of simulations to be run</label>&nbsp;
+                <input class="input" id="number-of-simulations" name="iterations" min="1" max="1000" type="number"
+                       readonly
+                       value=1000 required/><br>
+                <input class="button" type="submit" value="Calculate"/>
+            </p>
+            <p class="containterinfo">
+                <b>About Monte Carlo simulation:</b><br>
+                This Monte Carlo simulation tool provides a means to test long term expected portfolio growth and
+                portfolio survival based on withdrawals, e.g., testing whether the portfolio can sustain the planned
+                withdrawals required for retirement.
+            </p>
+        </div>
+    </form>
+{% endblock %}
