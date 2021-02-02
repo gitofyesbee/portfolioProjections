@@ -66,15 +66,17 @@ body {
             "inputoutputarea"
             "infoarea";
 }
+
 .container-title {
     grid-area: title;
 }
+
 .container-content {
     grid-area: inputoutputarea;
 }
+
 .container-info {
     grid-area: infoarea;
-    background: lightgrey;
 }
 
 .logo-begin {
@@ -174,11 +176,30 @@ label {
     font-family: inherit;
     font-size: 0.75em;
     color: #8b8a8b;
+    padding: 0;
+}
+
+.page-headings {
+    font-family: inherit;
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1;
+    padding: 0;
+    color: black;
+}
+
+.paragraph-headings {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1;
+    font-size: 1em;
+    padding: 0;
+    color: black;
 }
 
 .verdict {
     font-family: inherit;
-    font-size: 2em;
+    font-size: 1.5em;
     color: darkblue;
 }
 

@@ -29,8 +29,7 @@ def create_reports(simulated_returns):
     returns_to_chart = simulated_returns.transpose()
 
     # Chart setup
-    plan_chart = figure(width=700, height=400, title="Plan")
-    plan_chart = set_chart_title_properties(plan_chart)
+    plan_chart = figure(width=700, height=400)
     plan_chart.x_range = Range1d(0,len(returns_to_chart.index))
     # plan_chart.add_layout(Title(text="Plan", text_font_size="15px", align="center"), 'above')
 

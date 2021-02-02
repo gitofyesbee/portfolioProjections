@@ -1,18 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="container">
-        <div class="container-title">
-            <h1>Viability of your retirement plan</h1>
-        </div>
+        <p class="container-title">
+            <span class="page-headings">Viability of your retirement plan</span><br>
+            <span class="note">Landscape orientation recommended for mobile devices</span>
+        </p>
         <div class="container-content">
             <p>
                 <span class="verdict">{{ plan_verdict | safe }} <br></span>
-                The probability of success is <b>{{ passing_percentile | safe }}</b>
-                and the estimated inheritance is<i>{{ passing_percentile_value | safe }}</i><br>
+                The probability of success is <b>{{ passing_percentile | safe }}</b><br>
                 The remaining amount at the median is <b>{{ median_value_in_final_year | safe }}</b><br>
             </p>
         </div>
         <div class="container-info">
+            <span class="paragraph-headings">
+                Percentile Chart based on performance: Worst, Bad, Average, Good and Best
+            </span><br>
             <script type="text/javascript" src= {{ chart_js | safe }}></script>
             <script type="text/javascript" src= {{ chart_js_tables | safe }}></script>
             <script type="text/javascript" src= {{ chart_js_widgets | safe }}></script>
