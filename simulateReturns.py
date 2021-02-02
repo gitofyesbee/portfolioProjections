@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 from settings import InputValues
+import locale
+
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 
 # simulate returns
@@ -8,6 +11,7 @@ def simulate_returns(input_iterations, input_present_value, input_expected_roi, 
                      input_retirement_age,
                      input_annual_savings_till_retirement, input_annual_withdrawal_in_retirement, input_max_age):
     ending_values_df = pd.DataFrame()
+    ending_percentile_df = pd.DataFrame()
     iterations = int(input_iterations)
 
     for iteration in range(iterations):
@@ -61,6 +65,44 @@ def simulate_returns(input_iterations, input_present_value, input_expected_roi, 
             social_security_amount = social_security_amount * (1 + anticipated_inflation)
 
         ending_values_df[iteration] = temp_end_values
-        print(ending_values_df.head(100))
 
-    return ending_values_df
+    # get only 10%, 25%, 50%, 75% and 90% values
+    percentile_list = [0.10, 0.25, 0.5, 0.75, 0.9]
+    ending_values_transposed_df = ending_values_df.transpose()
+    for percentile in percentile_list:
+        temp_percentile_values = []
+        for year in range(len(ending_values_df)):
+            temp_percentile_values.append(ending_values_transposed_df[year].quantile(percentile))
+        ending_percentile_df[percentile] = temp_percentile_values
+
+    # get the minimum positive percentile in the final year
+    pass_percentile = 0
+    pass_percentile_value = 0
+    final_year_median_value = ending_values_transposed_df[(len(ending_values_df) - 1)].median()
+    for i in range(100):
+        percentile_to_check = i / 100
+        pass_percentile_value = ending_values_transposed_df[(len(ending_values_df) - 1)].quantile(percentile_to_check)
+        if pass_percentile_value > 0:
+            pass_percentile = 1 - percentile_to_check
+            break
+
+    # Plan verdict
+    if 0.00 <= pass_percentile < 0.60:
+        verdict = "Guaranteed to fail. Rehash plan."
+    elif 0.60 <= pass_percentile < 0.70:
+        verdict = "Risky, recheck parameters. Exercise caution."
+    elif 0.70 <= pass_percentile < 0.80:
+        verdict = "Your plan is okay. Continue monitoring."
+    elif 0.80 <= pass_percentile < 0.85:
+        verdict = "Good Job. Your plan has a very high probability of success"
+    else:
+        verdict = "Congratulations. Unless there is a global catastrophe, your plan will succeed."
+
+    # format the return values
+    formatted_pass_percentile = "{0:.2%}".format(pass_percentile)
+    formatted_pass_percentile_value = locale.currency(pass_percentile_value, grouping=True)
+    formatted_final_year_median_value = locale.currency(final_year_median_value, grouping=True)
+
+    # return
+    return ending_percentile_df.transpose(), formatted_pass_percentile, formatted_pass_percentile_value, \
+           formatted_final_year_median_value, verdict

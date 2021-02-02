@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 from dateutil.relativedelta import relativedelta
 from datetime import date, datetime
 from simulateReturns import simulate_returns
+from flask import request
+import createreports as cr
 
 app = Flask(__name__)
 
@@ -19,26 +21,36 @@ def home():
 @app.route("/output.html/", methods=['POST', 'GET'])
 def results():
     if request.method == 'GET':
-        # return f"The URL /output is accessed directly. Try going to 'home' to submit form"
+        # redirect to input html if output is typed directly
         return render_template("input.html")
     if request.method == 'POST':
         # run the returns
         dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d')
-        print(type(dob))
         current_age = relativedelta(date.today(), dob).years
+        target_percentile_subset, pass_percentile, pass_percentile_value, final_year_median_value, verdict = \
+            simulate_returns(request.form['iterations'],
+                             request.form['present_value'],
+                             request.form['expected_roi'], request.form[
+                                 'standard_deviation_of_expected_returns'],
+                             current_age, request.form['retirement_age'],
+                             request.form[
+                                 'annual_savings_till_retirement'],
+                             request.form[
+                                 'annual_withdrawal_in_retirement'],
+                             request.form['max_age'])
+        chart_display, chart_div, cdn_js = cr.create_reports(target_percentile_subset)
+        # target_percentile_subset = target_percentile_subset.to_html()
 
-        simulated_returns = simulate_returns(request.form['iterations'],
-                                             request.form['present_value'],
-                                             request.form['expected_roi'],
-                                             request.form['standard_deviation_of_expected_returns'],
-                                             current_age,
-                                             request.form['retirement_age'],
-                                             request.form['annual_savings_till_retirement'],
-                                             request.form['annual_withdrawal_in_retirement'],
-                                             request.form['max_age'])
-        value_to_be_returned = "<div class='container-info'><p> The entered value from previous screen is: " + str(
-            simulated_returns) + ".</p></div>"
-        return render_template("output.html", div2=value_to_be_returned, div1=current_age)
+
+        return render_template("output.html",
+                               passing_percentile=pass_percentile,
+                               passing_percentile_value=pass_percentile_value,
+                               median_value_in_final_year=final_year_median_value,
+                               percentile_dataset=target_percentile_subset,
+                               plan_verdict=verdict,
+                               chart_to_display=chart_display,
+                               div_for_chart=chart_div,
+                               chart_js=cdn_js[0], chart_js_tables=cdn_js[2], chart_js_widgets=cdn_js[1])
 
 
 @app.route('/input/')

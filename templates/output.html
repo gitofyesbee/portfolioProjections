@@ -1,12 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div  class="container">
+    <div class="container">
         <div class="container-title">
             <h1>Viability of your retirement plan</h1>
         </div>
         <div class="container-content">
-            <p>The probability of success is <i>{{ div1 | safe }}</i></p>
+            <p>
+                <span class="verdict">{{ plan_verdict | safe }} <br></span>
+                The probability of success is <b>{{ passing_percentile | safe }}</b>
+                and the estimated inheritance is<i>{{ passing_percentile_value | safe }}</i><br>
+                The remaining amount at the median is <b>{{ median_value_in_final_year | safe }}</b><br>
+            </p>
         </div>
-        {{ div2 | safe }}
+        <div class="container-info">
+            <script type="text/javascript" src= {{ chart_js | safe }}></script>
+            <script type="text/javascript" src= {{ chart_js_tables | safe }}></script>
+            <script type="text/javascript" src= {{ chart_js_widgets | safe }}></script>
+            {{ div_for_chart | safe }}
+            {{ chart_to_display | safe }}
+        </div>
+
     </div>
 {% endblock %}
