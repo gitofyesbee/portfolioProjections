@@ -53,14 +53,23 @@
                 <input class="input" id="number-of-simulations" name="iterations" min="1" max="1000" type="number"
                        readonly
                        value=1000 required/><br>
-                <input class="button" type="submit" value="Calculate"/>
+                <input class="button" type="submit" value="Calculate"/><br><br>
             </p>
-            <p class="container-info">
-                <b>About Monte Carlo simulation:</b><br>
-                This Monte Carlo simulation tool provides a means to test long term expected portfolio growth and
-                portfolio survival based on withdrawals, e.g., testing whether the portfolio can sustain the planned
-                withdrawals required for retirement.
-            </p>
+            <ul class="container-info" header-label="Assumptions:">
+                <li class="paragraph-headings">$ values are today's value. Model adjusts withdrawals for inflation</li>
+                <li>Inflation: 3%<br></li>
+                <li>Standard Deviation of Inflation: 1.17%<br></li>
+                <li>Social Security Begin Age: 66. Social Security Amount: $28K.</li>
+                <li>Retirement Phases:
+                    <ul>
+                        <li>Upto 66: Pre-tax: Amount entered in the Annual withdrawal field</li>
+                        <li>From 66 to 75: Pre-tax: Same total amount but reduced by $28K from Soc. Sec</li>
+                        <li>From 75 to EOL: Pre-tax: Reduction of $18K pa from the amount entered in the
+                            withdrawal field above <i>minus</i> $28K from SS
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </form>
 {% endblock %}
