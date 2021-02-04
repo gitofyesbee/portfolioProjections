@@ -192,9 +192,9 @@ label {
     font-family: inherit;
     font-weight: 500;
     line-height: 1;
-    font-size: 1em;
+    font-size: 1.2em;
     padding: 0;
-    color: black;
+    color: darkblue;
 }
 
 .verdict {

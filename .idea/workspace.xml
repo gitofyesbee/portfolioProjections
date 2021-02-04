@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v1.1 - cleaned up little bit more">
+    <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v1.2 - Added assumptions to the input screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/input.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/output.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/output.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +53,9 @@
     <configuration name="127.0.0.1:5000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://127.0.0.1:5000/">
       <method v="2" />
     </configuration>
+    <configuration name="input.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/reitrementViability/templates/input.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="reitrementViability" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,10 +97,12 @@
     <list>
       <item itemvalue="Flask server.reitrementViability" />
       <item itemvalue="JavaScript Debug.127.0.0.1:5000" />
+      <item itemvalue="JavaScript Debug.input.html" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.127.0.0.1:5000" />
+        <item itemvalue="JavaScript Debug.input.html" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +123,8 @@
       <workItem from="1612284286422" duration="457000" />
       <workItem from="1612285066052" duration="336000" />
       <workItem from="1612291766645" duration="1292000" />
-      <workItem from="1612324509459" duration="3789000" />
+      <workItem from="1612324509459" duration="4050000" />
+      <workItem from="1612372189230" duration="12589000" />
     </task>
     <task id="LOCAL-00001" summary="v0.5 code updated with initial logic">
       <created>1612208972269</created>
@@ -147,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612293143821</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="v1.2 - Added assumptions to the input screen">
+      <created>1612328662737</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1612328662737</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,16 +185,17 @@
     <MESSAGE value="v0.9" />
     <MESSAGE value="v1.0 all set to deploy" />
     <MESSAGE value="v1.1 - cleaned up little bit more" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.1 - cleaned up little bit more" />
+    <MESSAGE value="v1.2 - Added assumptions to the input screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2 - Added assumptions to the input screen" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
-      <configuration name="Python.FlaskServer">
-        <watch expression="ending_values_df[year].quantile(percentile)" />
+      <configuration name="JavascriptDebugType">
+        <watch expression="ending_values_df[iteration]" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612328109269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612406933393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

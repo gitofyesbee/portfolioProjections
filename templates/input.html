@@ -1,5 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
+    <script type='text/javascript'>
+        function check_if_retired_already(retirement_age_entered) {
+            let dob_entered = document.getElementById('birth-date');
+            let dob_date = dob_entered.value;
+            let d1 = new Date();
+            let d2 = new Date(dob_date)
+            let current_age = d1.getFullYear() - d2.getFullYear();
+            if (current_age > retirement_age_entered) {
+                document.getElementById('planned-retirement-age').setCustomValidity("You seem to have retired. " +
+                    "Calculation for retirees is part of our future roadmap");
+            } else {
+                document.getElementById('planned-retirement-age').setCustomValidity("");
+            }
+        }
+
+        function compare_to_retirement_age(max_age_entered) {
+            max_age_entered = parseFloat(max_age_entered);
+            let retirement_age_entered = document.getElementById('planned-retirement-age').value;
+            retirement_age_entered = parseFloat(retirement_age_entered)
+
+            if (max_age_entered < retirement_age_entered) {
+                document.getElementById('max-age').setCustomValidity("Entered value cannot be lesser than retirement age.");
+            } else {
+                document.getElementById('max-age').setCustomValidity("");
+
+            }
+        }
+    </script>
     <form method="post" action="/output/">
         <div class="container">
             <p class="container-title">
@@ -12,15 +40,19 @@
 
                 <label for="birth-date">Date of birth</label>&nbsp;
                 <input class="input" id="birth-date" name="date_of_birth" type="date" placeholder="yyyy-mm-dd"
+                       min="1950-01-01"
+                       max="2150-12-31"
                        required/>
                 <br><br>
 
                 <label for="planned-retirement-age">Planned retirement Age?</label>&nbsp;
-                <input id="planned-retirement-age" class="input" name="retirement_age" type="number" required min="21"/>
+                <input id="planned-retirement-age" class="input" name="retirement_age" type="number" required min="21"
+                       max="101" onchange="check_if_retired_already(this.value)"/>
                 <br><br>
 
                 <label for="max-age">Age till which you want to check savings viability?</label>&nbsp;
-                <input id="max-age" class="input" name="max_age" type="number" required min="21" value="92"/>
+                <input id="max-age" class="input" name="max_age" type="number" required min="21" max="101" value="92"
+                       onchange="compare_to_retirement_age(this.value)"/>
                 <br><br>
 
                 <label for="planned-savings-till-retirement">Annual savings till retirement?</label>&nbsp;
