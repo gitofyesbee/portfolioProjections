@@ -13,7 +13,7 @@
 
             if (typeof entered_date === "undefined") {
                 document.getElementById('birth-date').setCustomValidity("Invalid date entered, " +
-                    "please use yyyy-mm-dd format");
+                    "please use yyyy-mm-dd format. Please clear data entered and enter fresh");
             } else {
                 if (begin_date < entered_date) {
                     if (entered_date < end_date) {
@@ -26,7 +26,7 @@
                 } else {
                     console.log("sneaky, tsk, tsk, tsk - chaos monkey");
                     document.getElementById('birth-date').setCustomValidity("Invalid date entered, " +
-                        "please use yyyy-mm-dd format");
+                        "please use yyyy-mm-dd format. Please clear data entered and enter fresh");
                 }
 
 
