@@ -1,6 +1,39 @@
 {% extends "layout.html" %}
 {% block content %}
     <script type='text/javascript'>
+
+        function check_for_valid_date(dob_entered) {
+            let current_date = new Date();
+            let begin_date = new Date();
+            let end_date = new Date();
+            let entered_date = new Date(dob_entered.value);
+
+            begin_date.setFullYear(current_date.getFullYear() - 100);
+            end_date.setFullYear(current_date.getFullYear() + 100);
+
+            if (typeof entered_date === "undefined") {
+                document.getElementById('birth-date').setCustomValidity("Invalid date entered, " +
+                    "please use yyyy-mm-dd format");
+            } else {
+                if (begin_date < entered_date) {
+                    if (entered_date < end_date) {
+                        document.getElementById('birth-date').setCustomValidity("");
+                        document.getElementById('birth-date').setAttribute('value', entered_date.toString());
+                    } else {
+                        document.getElementById('birth-date').setCustomValidity("Invalid date entered, " +
+                            "please use yyyy-mm-dd format");
+                    }
+                } else {
+                    console.log("sneaky, tsk, tsk, tsk - chaos monkey");
+                    document.getElementById('birth-date').setCustomValidity("Invalid date entered, " +
+                        "please use yyyy-mm-dd format");
+                }
+
+
+            }
+
+        }
+
         function check_if_retired_already(retirement_age_entered) {
             let dob_entered = document.getElementById('birth-date');
             let dob_date = dob_entered.value;
@@ -28,6 +61,7 @@
             }
         }
     </script>
+
     <form method="post" action="/output/">
         <div class="container">
             <p class="container-title">
@@ -42,7 +76,7 @@
                 <input class="input" id="birth-date" name="date_of_birth" type="date" placeholder="yyyy-mm-dd"
                        min="1950-01-01"
                        max="2150-12-31"
-                       required/>
+                       required onchange="check_for_valid_date(this)"/>
                 <br><br>
 
                 <label for="planned-retirement-age">Planned retirement Age?</label>&nbsp;

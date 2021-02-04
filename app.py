@@ -25,7 +25,17 @@ def results():
         return render_template("input.html")
     if request.method == 'POST':
         # run the returns
-        dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d')
+        dob = request.form['date_of_birth']
+        if len(dob) == 10:
+            dob = datetime.strptime(dob, '%Y-%m-%d')
+        # user has entered only year and month, append 1st date of the month
+        elif len(dob) == 7:
+            dob = dob + "-01"
+            dob = datetime.strptime(dob, '%Y-%m-%d')
+        # user has entered only year , append 1st date of the month and 1st month of the year
+        else:
+            dob = dob + "-01-01"
+            dob = datetime.strptime(dob, '%Y-%m-%d')
         current_age = relativedelta(date.today(), dob).years
         target_percentile_subset, pass_percentile, pass_percentile_value, final_year_median_value, verdict = \
             simulate_returns(request.form['iterations'],
@@ -40,7 +50,6 @@ def results():
                              request.form['max_age'])
         chart_display, chart_div, cdn_js = cr.create_reports(target_percentile_subset)
         # target_percentile_subset = target_percentile_subset.to_html()
-
 
         return render_template("output.html",
                                passing_percentile=pass_percentile,
