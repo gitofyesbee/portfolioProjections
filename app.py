@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from dateutil.relativedelta import relativedelta
 from datetime import date, datetime
 from simulateReturns import simulate_returns
-from flask import request
 import createreports as cr
 
 app = Flask(__name__)
@@ -40,7 +39,7 @@ def results():
             dob = datetime.strptime(dob, '%Y-%m-%d')
         current_age = relativedelta(date.today(), dob).years
         retirement_planned_age = int(request.form['retirement_age'])
-        if current_age < retirement_planned_age:
+        if current_age < retirement_planned_age:  # Not yet retired, run simulation.
             target_percentile_subset, pass_percentile, pass_percentile_value, final_year_median_value, verdict = \
                 simulate_returns(request.form['iterations'],
                                  request.form['present_value'],
@@ -54,12 +53,13 @@ def results():
                                  request.form['max_age'])
             chart_display, chart_div, cdn_js = cr.create_reports(target_percentile_subset)
 
-        else:
+        else:  # already retired?
             pass_percentile = "N/A"
             pass_percentile_value = "N/A"
             final_year_median_value = "N/A"
             target_percentile_subset = "N/A"
-            verdict = "You seem to have retired. Functionality for calculating viability for retirees is currently unavailable and will be a part of our future roadmap"
+            verdict = "You seem to have retired. Functionality for calculating viability for retirees is currently " \
+                      "unavailable and will be a part of our future roadmap"
             chart_display = ""
             chart_div = "<div></div>"
             cdn_js = ["", "", ""]

@@ -1,13 +1,10 @@
-import pandas as pd
 import bokeh as bk
 from bokeh.plotting import figure
 from bokeh.models import Band, Range1d
 from bokeh.embed import components
 from bokeh.resources import CDN
 from bokeh.palettes import Spectral11
-from bokeh.layouts import gridplot
-from bokeh.models import Title, NumeralTickFormatter
-from flask import request
+from bokeh.models import NumeralTickFormatter
 import locale
 
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
@@ -30,7 +27,7 @@ def create_reports(simulated_returns):
 
     # Chart setup
     plan_chart = figure(width=700, height=400)
-    plan_chart.x_range = Range1d(0,len(returns_to_chart.index))
+    plan_chart.x_range = Range1d(0, len(returns_to_chart.index))
     # plan_chart.add_layout(Title(text="Plan", text_font_size="15px", align="center"), 'above')
 
     # Error Charts setup
@@ -41,16 +38,15 @@ def create_reports(simulated_returns):
 
     # Chart 1: Final year simulated values
     number_of_lines = len(returns_to_chart.columns)
-    mypalette = Spectral11[0:number_of_lines]
+    my_palette = Spectral11[0:number_of_lines]
     plan_chart.multi_line(xs=[returns_to_chart.index.values] * number_of_lines,
-                          ys=[returns_to_chart[years].values for years in returns_to_chart], line_color=mypalette,
+                          ys=[returns_to_chart[years].values for years in returns_to_chart], line_color=my_palette,
                           line_width=2)
     plan_chart.renderers.extend([zero_span])
     plan_chart.yaxis[0].formatter = NumeralTickFormatter(format="($ 0.00 a)")
     plan_chart.xaxis[0].formatter = NumeralTickFormatter(format="0,0")
     # Chart 1: Error chart
     plan_chart.line(x=100, y=0)
-    # scatter_error_chart.xgrid.grid_line_color = None
 
     try:
         chart_display, chart_div = components(plan_chart)

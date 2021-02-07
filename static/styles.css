@@ -267,23 +267,6 @@ ul[header-label]::before {
 
 }
 
-/*@media (max-width: 750px) {*/
-/*    .main {*/
-/*        grid-template-columns: 1fr 1fr;*/
-/*        grid-template-areas:*/
-/*        "left-nav right-nav"*/
-/*        "left-nav top-row"*/
-/*        "left-nav r2-c1"*/
-/*        "left-nav r2-c2"*/
-/*        "left-nav after-content-row"*/
-/*        "left-nav last-row"*/
-/*    }*/
-
-/*    .container-content-area {*/
-/*        grid-area: 3 / 2 / 5 / 2;*/
-/*    }*/
-
-/*}*/
 
 @media (max-width: 750px) {
     .main {
