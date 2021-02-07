@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v2.2 - Retirees and Suggestions for improvement included">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/input.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/input.html" afterDir="false" />
+    <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v2.2 - enforced Date of birth validations. DoB + max-age &gt; current date and  DOB cannot be greater than today's date">
+      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +147,7 @@
       <workItem from="1612646577540" duration="2674000" />
       <workItem from="1612656459074" duration="23439000" />
       <workItem from="1612721930687" duration="7199000" />
-      <workItem from="1612730372652" duration="1934000" />
+      <workItem from="1612730372652" duration="2301000" />
     </task>
     <task id="LOCAL-00001" summary="v0.5 code updated with initial logic">
       <created>1612208972269</created>
@@ -262,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612730450600</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="v2.2 - enforced Date of birth validations. DoB + max-age &gt; current date and  DOB cannot be greater than today's date">
+      <created>1612732553499</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1612732553499</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +299,8 @@
     <MESSAGE value="v2.0 - Fully responsive (hopefully!)" />
     <MESSAGE value="v2.1 - removed warnings, unused code, added comments." />
     <MESSAGE value="v2.2 - Retirees and Suggestions for improvement included" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.2 - Retirees and Suggestions for improvement included" />
+    <MESSAGE value="v2.2 - enforced Date of birth validations. DoB + max-age &gt; current date and  DOB cannot be greater than today's date" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.2 - enforced Date of birth validations. DoB + max-age &gt; current date and  DOB cannot be greater than today's date" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -308,6 +315,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612732208790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612732711179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
