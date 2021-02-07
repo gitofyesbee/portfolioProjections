@@ -3,7 +3,6 @@ from dateutil.relativedelta import relativedelta
 from datetime import date, datetime
 from simulateReturns import simulate_returns
 import createreports as cr
-from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
