@@ -86,6 +86,7 @@ def simulate_returns(input_iterations, input_present_value, input_expected_roi, 
             pass_percentile = 1 - percentile_to_check
             break
 
+    provide_improvement_suggestions = True
     # Plan verdict
     if 0.00 <= pass_percentile < 0.60:
         verdict = "Guaranteed to fail. Rehash plan."
@@ -97,6 +98,7 @@ def simulate_returns(input_iterations, input_present_value, input_expected_roi, 
         verdict = "Good Job. Your plan has a very high probability of success"
     else:
         verdict = "Congratulations. Unless there is a global catastrophe, your plan will succeed."
+        provide_improvement_suggestions = False
 
     # format the return values
     formatted_pass_percentile = "{0:.2%}".format(pass_percentile)
@@ -105,4 +107,4 @@ def simulate_returns(input_iterations, input_present_value, input_expected_roi, 
 
     # return
     return ending_percentile_df.transpose(), formatted_pass_percentile, formatted_pass_percentile_value, \
-           formatted_final_year_median_value, verdict
+           formatted_final_year_median_value, verdict, provide_improvement_suggestions

@@ -11,14 +11,27 @@
             The remaining amount at the median is <b>{{ median_value_in_final_year | safe }}</b><br>
         </div>
         <div class="container-after-content-row">
-            <span class="paragraph-headings"> Percentile Chart based on projected market performance for the
-                    duration of simulation:<br>Worst, Bad, Average, Good and Best </span><br>
+            <span class="note"> Percentile Chart based on projected market performance for the
+                    duration of simulation: Worst, Bad, Average, Good and Best </span><br>
             <script type="text/javascript" src= {{ chart_js | safe }}></script>
             <script type="text/javascript" src= {{ chart_js_tables | safe }}></script>
             <script type="text/javascript" src= {{ chart_js_widgets | safe }}></script>
             {{ div_for_chart | safe }}
             {{ chart_to_display | safe }}
         </div>
-
+        <div id="improvement_suggestions" class="container-last-row" {{ suggest_improvements | safe }}>
+            <span class="verdict"><strong>Ideal success probability is 85%.</strong> Suggestions to rehash your plan:
+            </span>
+            <ul>
+                <li><strong>Retire later:</strong> Increase your planned retirement age</li>
+                <li><strong>More savings now:</strong> Increase your savings till retirement
+                    <i>(if not retired already)</i>
+                </li>
+                <li><strong>Riskier investments:</strong> Look for higher RoI - riskier investment options</li>
+            </ul>
+             <a href="{{ url_for('input_data') }}">
+                <input class="button" type="submit" value="Go back for a rerun"/>
+            </a>
+        </div>
     </div>
 {% endblock %}

@@ -28,7 +28,6 @@ def create_reports(simulated_returns):
     # Chart setup
     plan_chart = figure(width=700, height=400)
     plan_chart.x_range = Range1d(0, len(returns_to_chart.index))
-    # plan_chart.add_layout(Title(text="Plan", text_font_size="15px", align="center"), 'above')
 
     # Error Charts setup
     plan_error_chart = figure(width=500, height=300, title="Your plan fails, rerun with different data")
@@ -45,6 +44,7 @@ def create_reports(simulated_returns):
     plan_chart.renderers.extend([zero_span])
     plan_chart.yaxis[0].formatter = NumeralTickFormatter(format="($ 0.00 a)")
     plan_chart.xaxis[0].formatter = NumeralTickFormatter(format="0,0")
+
     # Chart 1: Error chart
     plan_chart.line(x=100, y=0)
 

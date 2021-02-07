@@ -3,6 +3,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import date, datetime
 from simulateReturns import simulate_returns
 import createreports as cr
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -46,17 +47,21 @@ def results():
         # run the returns
         current_age = relativedelta(date.today(), dob).years
         retirement_planned_age = int(request.form['retirement_age'])
-        target_percentile_subset, pass_percentile, pass_percentile_value, final_year_median_value, verdict = \
-            simulate_returns(request.form['iterations'],
-                             request.form['present_value'],
-                             request.form['expected_roi'],
-                             request.form['standard_deviation_of_expected_returns'],
-                             current_age,
-                             retirement_planned_age,
-                             request.form['annual_savings_till_retirement'],
-                             request.form['annual_withdrawal_in_retirement'],
-                             request.form['max_age'])
+        target_percentile_subset, pass_percentile, pass_percentile_value, final_year_median_value, verdict, \
+        provide_improvement_suggestions = simulate_returns(request.form['iterations'],
+                                                           request.form['present_value'],
+                                                           request.form['expected_roi'],
+                                                           request.form['standard_deviation_of_expected_returns'],
+                                                           current_age, retirement_planned_age,
+                                                           request.form['annual_savings_till_retirement'],
+                                                           request.form['annual_withdrawal_in_retirement'],
+                                                           request.form['max_age'])
         chart_display, chart_div, cdn_js = cr.create_reports(target_percentile_subset)
+
+        if provide_improvement_suggestions:
+            set_hidden = ""
+        else:
+            set_hidden = "hidden"
 
         return render_template("output.html",
                                passing_percentile=pass_percentile,
@@ -66,6 +71,7 @@ def results():
                                plan_verdict=verdict,
                                chart_to_display=chart_display,
                                div_for_chart=chart_div,
+                               suggest_improvements=set_hidden,
                                chart_js=cdn_js[0], chart_js_tables=cdn_js[2], chart_js_widgets=cdn_js[1])
 
 

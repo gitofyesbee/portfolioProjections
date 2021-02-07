@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v2.0 - Fully responsive (hopefully!)">
+    <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v2.1 - removed warnings, unused code, added comments.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/createreports.py" beforeDir="false" afterPath="$PROJECT_DIR$/createreports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulateReturns.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulateReturns.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/input.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/output.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/output.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +153,7 @@
       <workItem from="1612595082664" duration="4944000" />
       <workItem from="1612646577540" duration="2674000" />
       <workItem from="1612656459074" duration="23439000" />
-      <workItem from="1612721930687" duration="962000" />
+      <workItem from="1612721930687" duration="6955000" />
     </task>
     <task id="LOCAL-00001" summary="v0.5 code updated with initial logic">
       <created>1612208972269</created>
@@ -228,7 +232,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612687084448</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="v2.1 - removed warnings, unused code, added comments.">
+      <created>1612723271342</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1612723271342</updated>
+    </task>
+    <task id="LOCAL-00013" summary="v2.1 - removed warnings, unused code, added comments.">
+      <created>1612723485873</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1612723485873</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,9 +275,10 @@
     <MESSAGE value="v1.7 - Monkeys on keyboard checks cont'd.." />
     <MESSAGE value="v1.75 - Monkeys on keyboard checks cont'd.." />
     <MESSAGE value="v2.0 - Fully responsive (hopefully!)" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.0 - Fully responsive (hopefully!)" />
+    <MESSAGE value="v2.1 - removed warnings, unused code, added comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.1 - removed warnings, unused code, added comments." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612722973828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612729611457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
