@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
     <script type='text/javascript'>
-
         function check_for_valid_date(dob_entered) {
             let current_date = new Date();
             let begin_date = new Date();
@@ -33,7 +32,6 @@
             }
 
         }
-
         function check_if_retired_already(retirement_age_entered) {
             let dob_entered = document.getElementById('birth-date');
             let dob_date = dob_entered.value;
@@ -61,68 +59,65 @@
             }
         }
     </script>
+    <form class="main" method="post" action="/output/">
+        <div class="container-top-row">
+            <p class="page-headings">Enter your plan details</p>
+        </div>
+        <div class="container-first-content-column">
+            <label for="current-retirement-$">Current retirement savings</label>&nbsp;
+            <input class="input" id="current-retirement-$" name="present_value" type="number" required
+                   min="0"/>
+            <label for="birth-date">Date of birth</label>&nbsp;
+            <input class="input" id="birth-date" name="date_of_birth" type="date" placeholder="yyyy-mm-dd"
+                   min="1950-01-01"
+                   max="2150-12-31"
+                   required onchange="check_for_valid_date(this)"/>
+            <label for="planned-retirement-age">Planned retirement Age?</label>&nbsp;
+            <input id="planned-retirement-age" class="input" name="retirement_age" type="number" required
+                   min="21"
+                   max="101" onchange="check_if_retired_already(this.value)"/>
+            <label for="max-age">Age till which you want to check savings viability?</label>&nbsp;
+            <input id="max-age" class="input" name="max_age" type="number" required min="21" max="101"
+                   value="92"
+                   onchange="compare_to_retirement_age(this.value)"/>
+            <label for="planned-savings-till-retirement">Annual savings till retirement?</label>&nbsp;
+            <input id="planned-savings-till-retirement" class="input" name="annual_savings_till_retirement"
+                   type="number"
+                   required min="0" value="0"/>
+            <label for="retirement-expenses">Annual expenses in retirement?</label>&nbsp;
+            <input id="retirement-expenses" class="input" type="number"
+                   name="annual_withdrawal_in_retirement"
+                   required
+                   min="0" value="108000"/>
+        </div>
+        <div class="container-second-content-column">
+            <label for="roi-expected">Anticipated returns on retirement savings</label>&nbsp;
+            <input class="input-with-note" id="roi-expected" name="expected_roi" type="number" required
+                   min="0.05" max="1"
+                   step="0.0001" value="0.0725"/><br>
+            <span class="note">Enter value in decimals pls: 0.5 is 50%, 0.05 is 5% </span>
+            <br><br>
 
-    <form method="post" action="/output/">
-        <div class="container">
-            <p class="container-title">
-                <span class="page-headings">Monte Carlo Simulation: Enter plan details</span>
-            </p>
-            <p class=" container-content">
-                <label for="current-retirement-$">Current retirement savings</label>&nbsp;
-                <input class="input" id="current-retirement-$" name="present_value" type="number" required min="0"/>
-                <br><br>
-
-                <label for="birth-date">Date of birth</label>&nbsp;
-                <input class="input" id="birth-date" name="date_of_birth" type="date" placeholder="yyyy-mm-dd"
-                       min="1950-01-01"
-                       max="2150-12-31"
-                       required onchange="check_for_valid_date(this)"/>
-                <br><br>
-
-                <label for="planned-retirement-age">Planned retirement Age?</label>&nbsp;
-                <input id="planned-retirement-age" class="input" name="retirement_age" type="number" required min="21"
-                       max="101" onchange="check_if_retired_already(this.value)"/>
-                <br><br>
-
-                <label for="max-age">Age till which you want to check savings viability?</label>&nbsp;
-                <input id="max-age" class="input" name="max_age" type="number" required min="21" max="101" value="92"
-                       onchange="compare_to_retirement_age(this.value)"/>
-                <br><br>
-
-                <label for="planned-savings-till-retirement">Annual savings till retirement?</label>&nbsp;
-                <input id="planned-savings-till-retirement" class="input" name="annual_savings_till_retirement"
-                       type="number"
-                       required min="0" value="0"/>
-                <br><br>
-
-                <label for="retirement-expenses">Annual expenses in retirement?</label>&nbsp;
-                <input id="retirement-expenses" class="input" type="number" name="annual_withdrawal_in_retirement"
-                       required
-                       min="0" value="108000"/>
-                <br><br>
-
-                <label for="roi-expected">Anticipated returns on retirement savings</label>&nbsp;
-                <input class="input" id="roi-expected" name="expected_roi" type="number" required min="0.05" max="1"
-                       step="0.0001" value="0.0725"/><br>
-                <span class="note">Enter value in decimals pls: 0.5 is 50%, 0.05 is 5% </span>
-                <br><br>
-
-                <label for="standard-deviation">Anticipated volatility</label>&nbsp;
-                <input class="input" id="standard-deviation" type="number" name="standard_deviation_of_expected_returns"
-                       required min="0.1" max="1" step="0.0001"
-                       value="0.17"/><br>
-                <span class="note">Leave at default, unless you know what you are doing.&nbsp;
+            <label for="standard-deviation">Anticipated volatility</label>&nbsp;
+            <input class="input-with-note" id="standard-deviation" type="number"
+                   name="standard_deviation_of_expected_returns"
+                   required min="0.1" max="1" step="0.0001"
+                   value="0.17"/>
+            <span class="note">Leave at default, unless you know what you are doing.&nbsp;
                     To tinker please enter value in decimals pls: 0.5 is 50%, 0.05 is 5% </span>
-                <br><br>
-
-                <label for="number-of-simulations">Number of simulations to be run</label>&nbsp;
-                <input class="input" id="number-of-simulations" name="iterations" min="1" max="1000" type="number"
-                       readonly
-                       value=1000 required/><br>
-                <input class="button" type="submit" value="Calculate"/><br><br>
-            </p>
-            <ul class="container-info" header-label="Assumptions:">
-                <li class="paragraph-headings">$ values are today's value. Model adjusts withdrawals for inflation</li>
+            <br>
+            <label for="number-of-simulations" hidden>Number of simulations to be run</label>&nbsp;
+            <input class="input" id="number-of-simulations" name="iterations" min="1" max="1000"
+                   type="number"
+                   readonly="readonly" value="1000" required hidden/>
+        </div>
+        <div class="container-after-content-row">
+            <input class="button" type="submit" value="Calculate" tabindex="9"/>
+        </div>
+        <div class="container-last-row">
+            <span class="paragraph-headings">Assumptions:</span>
+            <ul>
+                <li>$ values are today's value. Model adjusts withdrawals for inflation</li>
                 <li>Inflation: 3%<br></li>
                 <li>Standard Deviation of Inflation: 1.17%<br></li>
                 <li>Social Security Begin Age: 66. Social Security Amount: $28K.</li>

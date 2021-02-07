@@ -1,22 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="container">
-        <p class="container-title">
+    <div class="main">
+        <div class="container-top-row">
             <span class="page-headings">Viability of your retirement plan</span><br>
             <span class="note">Landscape orientation recommended for mobile devices</span>
-        </p>
-        <div class="container-content">
-            <p>
-                <span class="verdict">{{ plan_verdict | safe }} <br></span>
-                The probability of success is <b>{{ passing_percentile | safe }}</b><br>
-                The remaining amount at the median is <b>{{ median_value_in_final_year | safe }}</b><br>
-            </p>
         </div>
-        <div class="container-info">
-            <span class="paragraph-headings">
-                Percentile Chart based on projected market performance for the duration of simulation:<br>
-                Worst, Bad, Average, Good and Best
-            </span><br>
+        <div class="container-content-area">
+            <span class="verdict">{{ plan_verdict | safe }} <br></span>
+            The probability of success is <b>{{ passing_percentile | safe }}</b><br>
+            The remaining amount at the median is <b>{{ median_value_in_final_year | safe }}</b><br>
+        </div>
+        <div class="container-after-content-row">
+            <span class="paragraph-headings"> Percentile Chart based on projected market performance for the
+                    duration of simulation:<br>Worst, Bad, Average, Good and Best </span><br>
             <script type="text/javascript" src= {{ chart_js | safe }}></script>
             <script type="text/javascript" src= {{ chart_js_tables | safe }}></script>
             <script type="text/javascript" src= {{ chart_js_widgets | safe }}></script>

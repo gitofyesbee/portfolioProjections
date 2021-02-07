@@ -1,34 +1,29 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="container">
-         <p class="container-title">
-                <span class="page-headings">Monte Carlo Simulation</span>
-            </p>
-        <p class="container-content">
+    <div class="main">
+        <div class="container-top-row">
+            <span class="page-headings">Monte Carlo Simulation</span>
+        </div>
+        <div class="container-content-area">
             This Monte Carlo simulation tool provides a means to test long term expected portfolio growth and portfolio
             survival based on withdrawals, e.g., testing whether the portfolio can sustain the planned withdrawals
             required for retirement.<br>
             <span class="note">
                 No info is stored. Data will be lost once you close or refresh the browser
-            </span>
-            <br>
+            </span><br>
+
+        </div>
+        <div class="container-after-content-row">
             <a href="input">
                 <input class="button" type="submit" value="Click to Start"/>
             </a>
-        </p>
-        <ul class="container-info">
-            <li><strong>Proof of Concept application:</strong> &nbsp;Utilizing Python, HTML5, CSS Grids
-                <ul>
-                    <li>
-                        <strong>Phase 1 (Current):</strong>
-                        &nbsp;Container based (Dyno), CI/CD
-                    </li>
-                    <li>
-                        <strong>Phase 2:</strong>
-                        &nbsp;Fully serverless (AWS)
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        </div>
+        <div class="container-last-row">
+            <span class="paragraph-headings"><strong>Proof of Concept app:</strong> Python, HTML5, CSS Grids.</span>
+            <ul>
+                <li><strong>Phase 1 (Current):</strong> Container based (Dyno), CI/CD</li>
+                <li><strong>Phase 2:</strong> Fully serverless (AWS)</li>
+            </ul>
+        </div>
     </div>
 {% endblock %}

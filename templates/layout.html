@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Retirement Plan Viability Checker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
 </head>
@@ -12,12 +12,10 @@
     <span class="logo-begin">
         <a href="index" class="logo-begin">Retirement Viability</a>
     </span>
-    <span class="logo-end"> Calculator </span>
+    <span class="logo-end">Calculator </span>
 </div>
-<div class="main-content">
     {% block content %}
     {% endblock %}
-</div>
 <div class="footer">
     <p>&copy; Just don't copy!</p>
 </div>

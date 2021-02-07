@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v1.75 - Monkeys on keyboard checks cont'd..">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/input.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/output.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/output.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,10 +60,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="settings.editor.selected.configurable" value="liveEdit" />
   </component>
   <component name="RunManager" selected="Flask server.reitrementViability">
     <configuration name="127.0.0.1:5000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://127.0.0.1:5000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/reitrementViability/templates/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="input.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/reitrementViability/templates/input.html" useBuiltInWebServerPort="true">
@@ -106,11 +114,13 @@
       <item itemvalue="Flask server.reitrementViability" />
       <item itemvalue="JavaScript Debug.127.0.0.1:5000" />
       <item itemvalue="JavaScript Debug.input.html" />
+      <item itemvalue="JavaScript Debug.index.html" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.input.html" />
         <item itemvalue="JavaScript Debug.127.0.0.1:5000" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.input.html" />
       </list>
     </recent_temporary>
   </component>
@@ -136,6 +146,11 @@
       <workItem from="1612411283143" duration="184000" />
       <workItem from="1612411470718" duration="5558000" />
       <workItem from="1612417298663" duration="1261000" />
+      <workItem from="1612472708016" duration="702000" />
+      <workItem from="1612495861702" duration="29000" />
+      <workItem from="1612595082664" duration="4944000" />
+      <workItem from="1612646577540" duration="2674000" />
+      <workItem from="1612656459074" duration="23400000" />
     </task>
     <task id="LOCAL-00001" summary="v0.5 code updated with initial logic">
       <created>1612208972269</created>
@@ -193,7 +208,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612418133003</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="v1.75 - Monkeys on keyboard checks cont'd..">
+      <created>1612472740761</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1612472740761</updated>
+    </task>
+    <task id="LOCAL-00010" summary="v1.75 - Monkeys on keyboard checks cont'd..">
+      <created>1612472921587</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1612472921587</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +253,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="v1.75 - Monkeys on keyboard checks cont'd.." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612417857762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612686800964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

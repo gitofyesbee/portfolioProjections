@@ -11,72 +11,79 @@
     --input-focus-l: 42%;
     --yellow: #ffc600;
     --black: #272727;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 }
 
 body {
+    margin: 0;
     min-height: 100vh;
-    position: relative;
+    font-family: var(--bs-font-sans-serif);
     display: grid;
-    place-content: start start;
-    grid-gap: 0.25vh;
-    font-family: "Baloo 2", sans-serif;
-    /* background-color: #eeeeee; */
-    padding: 0.5vh;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
-        "topbar     topbar      topbar"
-        "sidebar-1  content     sidebar-2"
-        "bottombar  bottombar   bottombar";
+        'header'
+        'main'
+        'footer';
 }
 
 .header {
-    grid-area: topbar;
-    background: rgba(47, 79, 79, 0.4);
-    min-height: 5vh;
-}
-
-.main-content {
-    grid-area: content;
-    min-height: 80vh;
+    grid-area: header;
+    background-color: #c4c4c4;
 }
 
 .footer {
-    grid-area: bottombar;
-    background: rgba(0, 0, 0, 0.4);
-    min-height: 5vh;
-    padding-left: 20px;
+    grid-area: footer;
+    background-color: #c4c4c4;
 }
 
-@media (max-width: 900px) {
-    body {
-        grid-template-areas:
-        "topbar     topbar      topbar"
-        "sidebar-1  sidebar-1   sidebar-2"
-        "content    content     content"
-        "bottombar  bottombar   bottombar";
-    }
-}
-
-.container {
+.main {
+    grid-area: main;
+    overflow: auto;
+    place-content: start start;
+    padding: 15px 5px 10px 5px;
     display: grid;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr minmax(0, 3fr) minmax(0, 3fr) 1fr;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas:
-            "title"
-            "inputoutputarea"
-            "infoarea";
+        "left-nav top-row           top-row             right-nav"
+        "left-nav r2-c1             r2-c2               right-nav"
+        "left-nav after-content-row after-content-row   right-nav"
+        "left-nav last-row          last-row            right-nav";
+    grid-gap: 20px;
 }
 
-.container-title {
-    grid-area: title;
+.container-top-row {
+    grid-area: top-row;
 }
 
-.container-content {
-    grid-area: inputoutputarea;
+.container-content-area {
+    grid-area: 2 / 2 / 2 / 4;
 }
 
-.container-info {
-    grid-area: infoarea;
+.container-after-content-row {
+    grid-area: after-content-row;
+}
+
+.container-last-row {
+    grid-area: last-row;
+}
+
+.container-first-content-column {
+    grid-area: r2-c1;
+}
+
+.container-second-content-column {
+    grid-area: r2-c2;
+}
+
+.left-nav {
+    grid-area: left-nav;
+}
+
+.right-nav {
+    grid-area: right-nav;
 }
 
 .logo-begin {
@@ -84,8 +91,7 @@ body {
     font-size: 2rem;
     font-weight: 500;
     color: white;
-    background: rgba(139, 0, 139, 0.4);
-    padding: 5px;
+    padding: 0.5vh;
 }
 
 .logo-begin a {
@@ -96,21 +102,47 @@ body {
 .logo-end {
     text-transform: uppercase;
     font-size: 2rem;
-    font-weight: 700;
-    /*-webkit-text-stroke: 2px rgba(139, 0, 139, 0.8);
-    -webkit-text-fill-color: rgba(139, 0, 139, 0.8);*/
-    padding: 5px;
+    font-weight: 500;
+    padding: 0.5vh;
 }
 
 /* input items styling */
+
 .input {
     font-size: 1rem;
     font-family: inherit;
-    padding: 0.25em;
     background-color: #fff;
-    border: 2px solid var(--input-border);
-    border-radius: 4px;
-    transition: 180ms box-shadow ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+}
+
+.input-with-note {
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #fff;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
 }
 
 .input:focus {
@@ -159,13 +191,14 @@ textarea.input {
     min-height: 44px;
     text-align: center;
     line-height: 1.1;
-    transition: 220ms all ease-in-out;
+    /*transition: 220ms all ease-in-out;*/
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 label {
     font-size: 1rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.5rem;
 }
 
 .input + label {
@@ -176,7 +209,8 @@ label {
     font-family: inherit;
     font-size: 0.75em;
     color: #8b8a8b;
-    padding: 0;
+    padding: 0.5vh;
+    margin-bottom: 0.5rem;
 }
 
 .page-headings {
@@ -215,3 +249,60 @@ ul[header-label]::before {
 }
 
 /* end of input items styling */
+
+@media (max-width: 900px) {
+    .main {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+        "left-nav top-row           right-nav"
+        "left-nav r2-c1             right-nav"
+        "left-nav r2-c2             right-nav"
+        "left-nav after-content-row right-nav"
+        "left-nav last-row          right-nav";
+    }
+
+    .container-content-area {
+        grid-area: 2 / 2 / 4 / 2;
+    }
+
+}
+
+/*@media (max-width: 750px) {*/
+/*    .main {*/
+/*        grid-template-columns: 1fr 1fr;*/
+/*        grid-template-areas:*/
+/*        "left-nav right-nav"*/
+/*        "left-nav top-row"*/
+/*        "left-nav r2-c1"*/
+/*        "left-nav r2-c2"*/
+/*        "left-nav after-content-row"*/
+/*        "left-nav last-row"*/
+/*    }*/
+
+/*    .container-content-area {*/
+/*        grid-area: 3 / 2 / 5 / 2;*/
+/*    }*/
+
+/*}*/
+
+@media (max-width: 750px) {
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "right-nav"
+            "left-nav"
+            "top-row"
+            "r2-c1"
+            "r2-c2"
+            "after-content-row"
+            "last-row"
+    }
+
+    .container-content-area {
+        grid-area: 4 / 1 / 6 / 1;
+    }
+
+}
+
+
+
