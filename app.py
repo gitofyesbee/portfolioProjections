@@ -46,18 +46,14 @@ def results():
         # run the returns
         current_age = relativedelta(date.today(), dob).years
         retirement_planned_age = int(request.form['retirement_age'])
-        target_percentile_subset, pass_percentile, pass_percentile_value, final_year_median_value, verdict, \
-        provide_improvement_suggestions = simulate_returns(request.form['iterations'],
-                                                           request.form['present_value'],
-                                                           request.form['expected_roi'],
-                                                           request.form['standard_deviation_of_expected_returns'],
-                                                           current_age, retirement_planned_age,
-                                                           request.form['annual_savings_till_retirement'],
-                                                           request.form['annual_withdrawal_in_retirement'],
-                                                           request.form['max_age'])
+        target_percentile_subset, pass_percentile, pass_percentile_value, final_year_median_value, verdict, improve = simulate_returns(
+            request.form['iterations'], request.form['present_value'], request.form['expected_roi'],
+            request.form['standard_deviation_of_expected_returns'], current_age, retirement_planned_age,
+            request.form['annual_savings_till_retirement'], request.form['annual_withdrawal_in_retirement'],
+            request.form['max_age'])
         chart_display, chart_div, cdn_js = cr.create_reports(target_percentile_subset)
 
-        if provide_improvement_suggestions:
+        if improve:
             set_hidden = ""
         else:
             set_hidden = "hidden"

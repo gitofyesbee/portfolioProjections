@@ -26,11 +26,11 @@ def create_reports(simulated_returns):
     returns_to_chart = simulated_returns.transpose()
 
     # Chart setup
-    plan_chart = figure(width=700, height=400)
+    plan_chart = figure(height=250, width=400, sizing_mode="scale_both")
     plan_chart.x_range = Range1d(0, len(returns_to_chart.index))
 
     # Error Charts setup
-    plan_error_chart = figure(width=500, height=300, title="Your plan fails, rerun with different data")
+    plan_error_chart = figure(height=300, width=400, title="Your plan fails, rerun with different data")
     plan_error_chart = set_chart_title_properties(plan_error_chart)
 
     zero_span = draw_span(0, 'green', 'width', 2, 'dashed')
