@@ -7,7 +7,6 @@
             let end_date = new Date();
             let entered_date = new Date(dob_entered.value);
             let max_date = document.getElementById('max-age').value;
-            console.log(max_date);
             begin_date.setFullYear(current_date.getFullYear() - max_date);
 
             if (typeof entered_date === "undefined") {
@@ -32,19 +31,7 @@
             }
 
         }
-        function check_if_retired_already(retirement_age_entered) {
-            let dob_entered = document.getElementById('birth-date');
-            let dob_date = dob_entered.value;
-            let d1 = new Date();
-            let d2 = new Date(dob_date)
-            let current_age = d1.getFullYear() - d2.getFullYear();
-            if (current_age > retirement_age_entered) {
-                document.getElementById('planned-retirement-age').setCustomValidity("You seem to have retired. " +
-                    "Calculation for retirees is part of our future roadmap");
-            } else {
-                document.getElementById('planned-retirement-age').setCustomValidity("");
-            }
-        }
+
 
         function compare_to_retirement_age(max_age_entered) {
             max_age_entered = parseFloat(max_age_entered);
@@ -69,7 +56,6 @@
                    min="0"/>
             <label for="birth-date">Date of birth</label>&nbsp;
             <input class="input" id="birth-date" name="date_of_birth" type="date" placeholder="yyyy-mm-dd"
-                   min="1950-01-01"
                    required onchange="check_for_valid_date(this)"/>
             <label for="planned-retirement-age">Planned retirement Age?</label>&nbsp;
             <input id="planned-retirement-age" class="input" name="retirement_age" type="number" required
