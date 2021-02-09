@@ -16,8 +16,8 @@ def simulate_returns(input_iterations, input_present_value, input_expected_roi, 
 
     for iteration in range(iterations):
         # get values
-        pv = float(input_present_value)
-        expected_roi = float(input_expected_roi)
+        pv = input_present_value
+        expected_roi = input_expected_roi
         std = float(input_std_of_returns)
         retire_in = (int(input_retirement_age) - int(input_current_age))
         duration = (int(input_max_age) - int(input_current_age))
@@ -107,4 +107,4 @@ def simulate_returns(input_iterations, input_present_value, input_expected_roi, 
 
     # return
     return ending_percentile_df.transpose(), formatted_pass_percentile, formatted_pass_percentile_value, \
-           formatted_final_year_median_value, verdict, provide_improvement_suggestions
+            formatted_final_year_median_value, verdict, provide_improvement_suggestions

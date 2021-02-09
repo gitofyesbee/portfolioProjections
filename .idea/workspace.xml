@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v2.3 - landing page picture">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/reitrementViability.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/reitrementViability.iml" afterDir="false" />
+    <list default="true" id="19677333-8c7f-44b4-9bdc-b19dfa6e3aa8" name="Default Changelist" comment="v2.3 - made chart responsive">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createreports.py" beforeDir="false" afterPath="$PROJECT_DIR$/createreports.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/input.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulateReturns.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulateReturns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RunManager" selected="Flask server.reitrementViability">
     <configuration name="127.0.0.1:5000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://127.0.0.1:5000/">
@@ -156,7 +154,15 @@
       <workItem from="1612744873642" duration="2517000" />
       <workItem from="1612748693889" duration="300000" />
       <workItem from="1612765987052" duration="58000" />
-      <workItem from="1612767033441" duration="1594000" />
+      <workItem from="1612767033441" duration="1858000" />
+      <workItem from="1612771731950" duration="216000" />
+      <workItem from="1612771999252" duration="36000" />
+      <workItem from="1612793748444" duration="93000" />
+      <workItem from="1612821358523" duration="267000" />
+      <workItem from="1612840387077" duration="2166000" />
+      <workItem from="1612851015487" duration="785000" />
+      <workItem from="1612854332121" duration="19000" />
+      <workItem from="1612855702151" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="v0.5 code updated with initial logic">
       <created>1612208972269</created>
@@ -326,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612748986309</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="v2.3 - made chart responsive">
+      <created>1612768775955</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1612768775955</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,9 +373,10 @@
     <MESSAGE value="v2.2 - enforced Date of birth validations. DoB + max-age &gt; current date and  DOB cannot be greater than today's date" />
     <MESSAGE value="v2.2 - fixed header logo link error" />
     <MESSAGE value="v2.3 - landing page picture" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.3 - landing page picture" />
+    <MESSAGE value="v2.3 - made chart responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.3 - made chart responsive" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612768292849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/reitrementViability$reitrementViability.coverage" NAME="reitrementViability Coverage Results" MODIFIED="1612851277231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

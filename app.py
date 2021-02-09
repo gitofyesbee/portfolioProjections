@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from dateutil.relativedelta import relativedelta
 from datetime import date, datetime
 from simulateReturns import simulate_returns
 import createreports as cr
+import secrets
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -19,7 +21,12 @@ def home():
 @app.route('/input/')
 @app.route("/input.html/")
 def input_data():
-    return render_template("input.html")
+    present_value = ""
+    if 'present_value' in session:
+        present_value = str(session["present_value"])
+        print(present_value)
+        print(session)
+    return render_template("input.html", current_val=present_value)
 
 
 @app.route('/output/', methods=['POST', 'GET'])
@@ -43,14 +50,32 @@ def results():
             dob = dob + "-01-01"
             dob = datetime.strptime(dob, '%Y-%m-%d')
 
-        # run the returns
+        # get user input
         current_age = relativedelta(date.today(), dob).years
         retirement_planned_age = int(request.form['retirement_age'])
+        iterations = int(request.form['iterations'])
+        present_value = float(request.form['present_value'])
+        expected_roi = float(request.form['expected_roi'])
+        standard_deviation = float(request.form['standard_deviation_of_expected_returns'])
+        annual_savings_till_retirement = float(request.form['annual_savings_till_retirement'])
+        annual_withdrawal_in_retirement = float(request.form['annual_withdrawal_in_retirement'])
+        max_age = int(request.form['max_age'])
+
+        # setup session variables
+        session['current_age'] = current_age
+        session['retirement_planned_age'] = retirement_planned_age
+        session['iterations'] = iterations
+        session['present_value'] = present_value
+        session['expected_roi'] = expected_roi
+        session['standard_deviation'] = standard_deviation
+        session['annual_savings_till_retirement'] = annual_savings_till_retirement
+        session['annual_withdrawal_in_retirement'] = annual_withdrawal_in_retirement
+        session['max_age'] = max_age
+
+        # run the returns
         target_percentile_subset, pass_percentile, pass_percentile_value, final_year_median_value, verdict, improve = simulate_returns(
-            request.form['iterations'], request.form['present_value'], request.form['expected_roi'],
-            request.form['standard_deviation_of_expected_returns'], current_age, retirement_planned_age,
-            request.form['annual_savings_till_retirement'], request.form['annual_withdrawal_in_retirement'],
-            request.form['max_age'])
+            iterations, present_value, expected_roi, standard_deviation, current_age, retirement_planned_age,
+            annual_savings_till_retirement, annual_withdrawal_in_retirement, max_age)
         chart_display, chart_div, cdn_js = cr.create_reports(target_percentile_subset)
 
         if improve:

@@ -32,13 +32,13 @@ body {
 .header {
     grid-area: header;
     background-color: #c4c4c4;
-    padding: 0px 0px 0px 20px;
+    padding: 0 0 0 20px;
 }
 
 .footer {
     grid-area: footer;
     background-color: #c4c4c4;
-    padding: 0px 0px 0px 20px;
+    padding: 0 0 0 20px;
 
 }
 
